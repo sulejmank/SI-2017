@@ -36,13 +36,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonDodajVozilo = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBoxDnevniProtok = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.buttonOdjava = new System.Windows.Forms.Button();
             this.textBoxRadnik = new System.Windows.Forms.TextBox();
             this.buttonZavrsi = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -103,6 +102,7 @@
             this.buttonDodajVozilo.TabIndex = 4;
             this.buttonDodajVozilo.Text = "Dodaj Vozilo";
             this.buttonDodajVozilo.UseVisualStyleBackColor = true;
+            this.buttonDodajVozilo.Click += new System.EventHandler(this.buttonDodajVozilo_Click);
             // 
             // button1
             // 
@@ -114,30 +114,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Naplati";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBoxDnevniProtok
-            // 
-            this.textBoxDnevniProtok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxDnevniProtok.BackColor = System.Drawing.Color.White;
-            this.textBoxDnevniProtok.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxDnevniProtok.Font = new System.Drawing.Font("Century Gothic", 14F);
-            this.textBoxDnevniProtok.Location = new System.Drawing.Point(824, 25);
-            this.textBoxDnevniProtok.Name = "textBoxDnevniProtok";
-            this.textBoxDnevniProtok.ReadOnly = true;
-            this.textBoxDnevniProtok.Size = new System.Drawing.Size(47, 23);
-            this.textBoxDnevniProtok.TabIndex = 7;
-            this.textBoxDnevniProtok.Text = "0";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 14F);
-            this.label3.Location = new System.Drawing.Point(615, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(203, 22);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Dnevni Protok Vozila:";
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonOdjava
             // 
@@ -153,15 +130,16 @@
             // 
             // textBoxRadnik
             // 
-            this.textBoxRadnik.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.textBoxRadnik.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxRadnik.BackColor = System.Drawing.Color.White;
             this.textBoxRadnik.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxRadnik.Font = new System.Drawing.Font("Century Gothic", 14F);
-            this.textBoxRadnik.Location = new System.Drawing.Point(703, 176);
+            this.textBoxRadnik.Location = new System.Drawing.Point(778, 26);
             this.textBoxRadnik.Name = "textBoxRadnik";
             this.textBoxRadnik.ReadOnly = true;
-            this.textBoxRadnik.Size = new System.Drawing.Size(151, 23);
+            this.textBoxRadnik.Size = new System.Drawing.Size(95, 23);
             this.textBoxRadnik.TabIndex = 9;
+            this.textBoxRadnik.TextChanged += new System.EventHandler(this.textBoxRadnik_TextChanged);
             // 
             // buttonZavrsi
             // 
@@ -173,9 +151,11 @@
             this.buttonZavrsi.TabIndex = 11;
             this.buttonZavrsi.Text = "Zavrsi Smenu";
             this.buttonZavrsi.UseVisualStyleBackColor = true;
+            this.buttonZavrsi.Click += new System.EventHandler(this.buttonZavrsi_Click);
             // 
             // timer1
             // 
+            this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label4
@@ -188,6 +168,17 @@
             this.label4.Size = new System.Drawing.Size(0, 22);
             this.label4.TabIndex = 12;
             // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(619, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(153, 21);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Ulogovani ste kao:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
             // RadnikForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -196,12 +187,11 @@
             this.BackgroundImage = global::ParkingSoftware.Properties.Resources.logo_1_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(875, 522);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonZavrsi);
             this.Controls.Add(this.textBoxRadnik);
             this.Controls.Add(this.buttonOdjava);
-            this.Controls.Add(this.textBoxDnevniProtok);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonDodajVozilo);
             this.Controls.Add(this.textBoxBrojVozila);
@@ -230,12 +220,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonDodajVozilo;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBoxDnevniProtok;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonOdjava;
         private System.Windows.Forms.TextBox textBoxRadnik;
         private System.Windows.Forms.Button buttonZavrsi;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -41,6 +41,12 @@
             this.izmeniCeneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.izmeniBrojMestaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.odjavaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelIme = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxBrojVozila = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxBrojSlobodnih = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +82,7 @@
             this.uvidUPoslovanjeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.uvidUPoslovanjeToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.uvidUPoslovanjeToolStripMenuItem.Text = "Uvid u Poslovanje";
+            this.uvidUPoslovanjeToolStripMenuItem.Click += new System.EventHandler(this.uvidUPoslovanjeToolStripMenuItem_Click);
             // 
             // trenutnoStanjeToolStripMenuItem
             // 
@@ -83,6 +90,7 @@
             this.trenutnoStanjeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
             this.trenutnoStanjeToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.trenutnoStanjeToolStripMenuItem.Text = "Trenutno Stanje";
+            this.trenutnoStanjeToolStripMenuItem.Click += new System.EventHandler(this.trenutnoStanjeToolStripMenuItem_Click);
             // 
             // naloziToolStripMenuItem1
             // 
@@ -100,18 +108,21 @@
             this.dodajNalogToolStripMenuItem.Name = "dodajNalogToolStripMenuItem";
             this.dodajNalogToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.dodajNalogToolStripMenuItem.Text = "Dodaj Nalog";
+            this.dodajNalogToolStripMenuItem.Click += new System.EventHandler(this.dodajNalogToolStripMenuItem_Click_1);
             // 
             // izmeniNalogToolStripMenuItem
             // 
             this.izmeniNalogToolStripMenuItem.Name = "izmeniNalogToolStripMenuItem";
             this.izmeniNalogToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.izmeniNalogToolStripMenuItem.Text = "Izmeni nalog";
+            this.izmeniNalogToolStripMenuItem.Click += new System.EventHandler(this.izmeniNalogToolStripMenuItem_Click);
             // 
             // obrišiNalogToolStripMenuItem
             // 
             this.obrišiNalogToolStripMenuItem.Name = "obrišiNalogToolStripMenuItem";
             this.obrišiNalogToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.obrišiNalogToolStripMenuItem.Text = "Obriši Nalog";
+            this.obrišiNalogToolStripMenuItem.Click += new System.EventHandler(this.obrišiNalogToolStripMenuItem_Click);
             // 
             // parkingToolStripMenuItem
             // 
@@ -128,12 +139,14 @@
             this.izmeniCeneToolStripMenuItem.Name = "izmeniCeneToolStripMenuItem";
             this.izmeniCeneToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.izmeniCeneToolStripMenuItem.Text = "Izmeni Cene";
+            this.izmeniCeneToolStripMenuItem.Click += new System.EventHandler(this.izmeniCeneToolStripMenuItem_Click);
             // 
             // izmeniBrojMestaToolStripMenuItem
             // 
             this.izmeniBrojMestaToolStripMenuItem.Name = "izmeniBrojMestaToolStripMenuItem";
             this.izmeniBrojMestaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.izmeniBrojMestaToolStripMenuItem.Text = "Izmeni Broj Mesta";
+            this.izmeniBrojMestaToolStripMenuItem.Click += new System.EventHandler(this.izmeniBrojMestaToolStripMenuItem_Click);
             // 
             // odjavaToolStripMenuItem
             // 
@@ -144,6 +157,75 @@
             this.odjavaToolStripMenuItem.Text = "Odjava";
             this.odjavaToolStripMenuItem.Click += new System.EventHandler(this.odjavaToolStripMenuItem_Click);
             // 
+            // labelIme
+            // 
+            this.labelIme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelIme.AutoSize = true;
+            this.labelIme.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIme.Location = new System.Drawing.Point(703, 43);
+            this.labelIme.Name = "labelIme";
+            this.labelIme.Size = new System.Drawing.Size(0, 22);
+            this.labelIme.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(544, 44);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 21);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Ulogovani ste kao:";
+            // 
+            // textBoxBrojVozila
+            // 
+            this.textBoxBrojVozila.BackColor = System.Drawing.Color.White;
+            this.textBoxBrojVozila.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxBrojVozila.Font = new System.Drawing.Font("Century Gothic", 14F);
+            this.textBoxBrojVozila.Location = new System.Drawing.Point(252, 94);
+            this.textBoxBrojVozila.Name = "textBoxBrojVozila";
+            this.textBoxBrojVozila.ReadOnly = true;
+            this.textBoxBrojVozila.Size = new System.Drawing.Size(47, 23);
+            this.textBoxBrojVozila.TabIndex = 7;
+            this.textBoxBrojVozila.Text = "0";
+            this.textBoxBrojVozila.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 14F);
+            this.label2.Location = new System.Drawing.Point(12, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(223, 22);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Broj Vozila Na Parkingu:";
+            this.label2.Visible = false;
+            // 
+            // textBoxBrojSlobodnih
+            // 
+            this.textBoxBrojSlobodnih.BackColor = System.Drawing.Color.White;
+            this.textBoxBrojSlobodnih.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxBrojSlobodnih.Font = new System.Drawing.Font("Century Gothic", 14F);
+            this.textBoxBrojSlobodnih.Location = new System.Drawing.Point(293, 42);
+            this.textBoxBrojSlobodnih.Name = "textBoxBrojSlobodnih";
+            this.textBoxBrojSlobodnih.ReadOnly = true;
+            this.textBoxBrojSlobodnih.Size = new System.Drawing.Size(47, 23);
+            this.textBoxBrojSlobodnih.TabIndex = 5;
+            this.textBoxBrojSlobodnih.Text = "0";
+            this.textBoxBrojSlobodnih.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14F);
+            this.label3.Location = new System.Drawing.Point(12, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(275, 22);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Broj Slobodnih Parking Mesta:";
+            this.label3.Visible = false;
+            // 
             // SefForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,6 +234,12 @@
             this.BackgroundImage = global::ParkingSoftware.Properties.Resources.logo_1_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(788, 497);
+            this.Controls.Add(this.textBoxBrojVozila);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBoxBrojSlobodnih);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelIme);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -159,6 +247,8 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "SefForma";
             this.Text = "ParkingSoft";
+            this.Load += new System.EventHandler(this.SefForma_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SefForma_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -180,5 +270,11 @@
         private System.Windows.Forms.ToolStripMenuItem izmeniNalogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajNalogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem odjavaToolStripMenuItem;
+        private System.Windows.Forms.Label labelIme;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxBrojVozila;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxBrojSlobodnih;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -8,15 +8,20 @@ using System.Windows.Forms;
 
 namespace ParkingSoftware
 {
-   public class Vozilo
+    public class Korisnik
     {
-        public string Tablice { get; set; }
-        public DateTime Dolazak { get; set; }
-        public int BrojVozila { get; set; }
-     
+        public string korisnicko_ime { get; set; }
+        public string lozinka { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public string Uloga { get; set; }
+        public int id { get; set; }
+
 
         private OleDbConnection connection = new OleDbConnection();
-        public Vozilo()
+
+
+        public Korisnik()
         {
             try
             {
@@ -25,89 +30,33 @@ namespace ParkingSoftware
                 connection.Close();
 
             }
-            catch (Exception ex)
+            catch (OleDbException e)
             {
-                if (ex is SystemException             ||
-                    ex is OleDbException              ||
-                    ex is NotSupportedException       ||
-                    ex is UnauthorizedAccessException ||
-                    ex is FormatException             ||
-                    ex is IndexOutOfRangeException    ||
-                    ex is InsufficientMemoryException ||
-                    ex is EntryPointNotFoundException ||
-                    ex is EntryPointNotFoundException ||
-                    ex is InvalidCastException        ||
-                    ex is InvalidProgramException)
-                    MessageBox.Show(ex.Message, "Greska");
-                else
-                    MessageBox.Show(ex.Message, "Greska");
-            }
-
-        }
-
-        public void DodajVozilo()
-        {
-
-            try
-            {
-                connection.Open();
-                OleDbCommand comm = new OleDbCommand();
-                comm.Connection = connection;
-                comm.CommandText = "insert into Vozilo(Tablice,Dolazak) values('" + Tablice + "','" + DateTime.Now + "');";
-
-                comm.ExecuteNonQuery();
-
-                connection.Close();
-
-               
-
-            }
-            catch (Exception ex)
-            {
-                if (ex is SystemException ||
-                    ex is OleDbException ||
-                    ex is NotSupportedException ||
-                    ex is UnauthorizedAccessException ||
-                    ex is FormatException ||
-                    ex is IndexOutOfRangeException ||
-                    ex is InsufficientMemoryException ||
-                    ex is EntryPointNotFoundException ||
-                    ex is EntryPointNotFoundException ||
-                    ex is InvalidCastException ||
-                    ex is InvalidProgramException)
-                    MessageBox.Show(ex.Message, "Greska");
-                else
-                    MessageBox.Show(ex.Message, "Greska");
+                MessageBox.Show(e.ToString());
 
                 if (connection != null)
-                {
                     connection.Close();
-                }
+
             }
+
         }
 
-        public List<Vozilo> SvaVozila()
+        public void proveri_korisnika()
         {
-            List<Vozilo> Sva_Vozila = new List<Vozilo>();
-            
             try
             {
-                
                 connection.Open();
                 OleDbCommand comm = new OleDbCommand();
                 comm.Connection = connection;
-                comm.CommandText = "select * from Vozilo;";
+                comm.CommandText = "select * from Nalog where korisnicko_ime='" + korisnicko_ime + "' and sifra='" + lozinka + "';";
 
                 OleDbDataReader reader = comm.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    Vozilo vozilo = new Vozilo();
-
-                    vozilo.Tablice = reader["Tablice"].ToString();
-                    vozilo.Dolazak = (DateTime)reader["Dolazak"];
-
-                    Sva_Vozila.Add(vozilo);
+                    Ime = reader["ime"].ToString();
+                    Prezime = reader["prezime"].ToString();
+                    Uloga = reader["uloga"].ToString();
                 }
 
                 connection.Close();
@@ -129,120 +78,72 @@ namespace ParkingSoftware
                     MessageBox.Show(ex.Message, "Greska");
                 else
                     MessageBox.Show(ex.Message, "Greska");
-                if (connection != null)
-                {
-                    connection.Close();
-                }
             }
-            return Sva_Vozila;
 
         }
 
-        public int IzbrojVozila()
+        public void dodaj_korisnika()
         {
             try
             {
                 connection.Open();
                 OleDbCommand comm = new OleDbCommand();
+
                 comm.Connection = connection;
-                comm.CommandText = "select count (*) from Vozilo";
-
-                BrojVozila = (Int32)comm.ExecuteScalar();
-
-
-                connection.Close();
-
-            }
-            catch (Exception ex)
-            {
-                if (ex is SystemException             ||
-                    ex is OleDbException              ||
-                    ex is NotSupportedException       ||
-                    ex is UnauthorizedAccessException ||
-                    ex is FormatException             ||
-                    ex is IndexOutOfRangeException    ||
-                    ex is InsufficientMemoryException ||
-                    ex is EntryPointNotFoundException ||
-                    ex is EntryPointNotFoundException ||
-                    ex is InvalidCastException        ||
-                    ex is InvalidProgramException)
-                    MessageBox.Show(ex.Message, "Greska");
-                else
-                    MessageBox.Show(ex.Message, "Greska");
-
-                if (connection != null)
-                {
-                    connection.Close();
-                }
-            }
-
-            return BrojVozila;
-
-        }
-
-        public void MakniVozilo()
-        {
-
-            try
-            {
-                connection.Open();
-                OleDbCommand comm = new OleDbCommand();
-                comm.Connection = connection;
-                comm.CommandText = "delete from Vozilo where Tablice='" + Tablice + "';";
-
+                comm.CommandText = "insert into Nalog(korisnicko_ime,sifra,ime,prezime,uloga) values('" + korisnicko_ime
+                                                                                                       + "','" + lozinka + "','" + Ime +
+                                                                                                       "','" + Prezime + "','" + Uloga + "');";
                 comm.ExecuteNonQuery();
 
                 connection.Close();
 
-
-
             }
             catch (Exception ex)
             {
-                if (ex is SystemException ||
-                    ex is OleDbException ||
-                    ex is NotSupportedException ||
+                if (ex is SystemException             ||
+                    ex is OleDbException              ||
+                    ex is NotSupportedException       ||
                     ex is UnauthorizedAccessException ||
-                    ex is FormatException ||
-                    ex is IndexOutOfRangeException ||
+                    ex is FormatException             ||
+                    ex is IndexOutOfRangeException    ||
                     ex is InsufficientMemoryException ||
                     ex is EntryPointNotFoundException ||
                     ex is EntryPointNotFoundException ||
-                    ex is InvalidCastException ||
+                    ex is InvalidCastException        ||
                     ex is InvalidProgramException)
                     MessageBox.Show(ex.Message, "Greska");
                 else
                     MessageBox.Show(ex.Message, "Greska");
-
-                if (connection != null)
-                {
-                    connection.Close();
-                }
             }
+
         }
 
-        public void PoTablicama()
-        {
-           
 
+        public List<Korisnik> izlistaj_korisnike()
+        {
+            List<Korisnik> lista = new List<Korisnik>();
             try
             {
-
                 connection.Open();
                 OleDbCommand comm = new OleDbCommand();
                 comm.Connection = connection;
-                comm.CommandText = "select * from Vozilo where Tablice='" + Tablice + "';";
+
+                comm.CommandText = "select * from Nalog;";
 
                 OleDbDataReader reader = comm.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    
+                    Korisnik kor = new Korisnik();
 
-                    Tablice = reader["Tablice"].ToString();
-                    Dolazak = (DateTime)reader["Dolazak"];
+                    kor.korisnicko_ime = reader["korisnicko_ime"].ToString();
+                    kor.Ime = reader["ime"].ToString();
+                    kor.Prezime = reader["prezime"].ToString();
+                    kor.Uloga = reader["uloga"].ToString();
+                    kor.id = (int)reader["ID"];
 
-                  
+                    lista.Add(kor);
+
                 }
 
                 connection.Close();
@@ -250,26 +151,93 @@ namespace ParkingSoftware
             }
             catch (Exception ex)
             {
-                if (ex is SystemException ||
-                    ex is OleDbException ||
-                    ex is NotSupportedException ||
+                if (ex is SystemException             ||
+                    ex is OleDbException              ||
+                    ex is NotSupportedException       ||
                     ex is UnauthorizedAccessException ||
-                    ex is FormatException ||
-                    ex is IndexOutOfRangeException ||
+                    ex is FormatException             ||
+                    ex is IndexOutOfRangeException    ||
                     ex is InsufficientMemoryException ||
                     ex is EntryPointNotFoundException ||
                     ex is EntryPointNotFoundException ||
-                    ex is InvalidCastException ||
+                    ex is InvalidCastException        ||
                     ex is InvalidProgramException)
                     MessageBox.Show(ex.Message, "Greska");
                 else
                     MessageBox.Show(ex.Message, "Greska");
-                if (connection != null)
-                {
-                    connection.Close();
-                }
+            }
+
+            return lista;
+
+        }
+
+        public void izmeni_korisnika()
+        {
+            try
+            {
+                connection.Open();
+                OleDbCommand comm = new OleDbCommand();
+                comm.Connection = connection;
+
+                comm.CommandText = "update Nalog set korisnicko_ime='" + korisnicko_ime + "',sifra='" + lozinka + "',ime='" + Ime + "',prezime='" + Prezime + "',uloga='" + Uloga + "' where id=" + id + ";";
+                comm.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                if (ex is SystemException             ||
+                    ex is OleDbException              ||
+                    ex is NotSupportedException       ||
+                    ex is UnauthorizedAccessException ||
+                    ex is FormatException             ||
+                    ex is IndexOutOfRangeException    ||
+                    ex is InsufficientMemoryException ||
+                    ex is EntryPointNotFoundException ||
+                    ex is EntryPointNotFoundException ||
+                    ex is InvalidCastException        ||
+                    ex is InvalidProgramException)
+                    MessageBox.Show(ex.Message, "Greska");
+                else
+                    MessageBox.Show(ex.Message, "Greska");
             }
 
         }
+
+        public void izbrisi_korisnika()
+        {
+            try
+            {
+                connection.Open();
+                OleDbCommand comm = new OleDbCommand();
+                comm.Connection = connection;
+
+                comm.CommandText = "delete from Nalog where ID="+ id+";";
+                comm.ExecuteNonQuery();
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                if (ex is SystemException             ||
+                    ex is OleDbException              ||
+                    ex is NotSupportedException       ||
+                    ex is UnauthorizedAccessException ||
+                    ex is FormatException             ||
+                    ex is IndexOutOfRangeException    ||
+                    ex is InsufficientMemoryException ||
+                    ex is EntryPointNotFoundException ||
+                    ex is EntryPointNotFoundException ||
+                    ex is InvalidCastException        ||
+                    ex is InvalidProgramException)
+                    MessageBox.Show(ex.Message, "Greska");
+                else
+                    MessageBox.Show(ex.Message, "Greska");
+            }
+
+        }
+
+
     }
 }

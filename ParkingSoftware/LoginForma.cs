@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,25 +19,35 @@ namespace ParkingSoftware
 
             this.AcceptButton = buttonLogin;
             textBoxKorisnickoIme.KeyDown += new KeyEventHandler(tb_keyDown);
+            textBoxLozinka.KeyDown += new KeyEventHandler(tb_keyDown);
+
         }
 
         private void tb_keyDown(object sender, KeyEventArgs e)
         {
-            if( e.KeyCode == Keys.Down)
-            textBoxLozinka.Focus();
+            if (e.KeyCode == Keys.Down)
+                textBoxLozinka.Focus();
+            else if (e.KeyCode == Keys.Up)
+                textBoxKorisnickoIme.Focus();
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             try {
 
-                LoginClass log = new LoginClass();
+                var pass = textBoxLozinka.Text;
+                var md5 = new MD5CryptoServiceProvider();
+                var data = Encoding.ASCII.GetBytes(pass);
+
+                var hash_pass = md5.ComputeHash(data);
+
+                Korisnik log = new Korisnik();
                 log.korisnicko_ime = textBoxKorisnickoIme.Text;
-                log.lozinka = textBoxLozinka.Text;
+                log.lozinka = Convert.ToBase64String(hash_pass);
                 log.proveri_korisnika();
 
-                
-                if (log.Uloga == "radnik")
+
+                if (log.Uloga == "radnik" || log.Uloga == "Radnik")
                 {
                     RadnikForma forma = new RadnikForma();
                     this.Hide();
@@ -45,27 +56,43 @@ namespace ParkingSoftware
                     forma.Show();
                     forma.WindowState = FormWindowState.Maximized;
                 }
-                else if (log.Uloga == "sef" || 
-                         log.Uloga == "admin")
+                else if (log.Uloga == "Sef" ||
+                         log.Uloga == "admin" || log.Uloga == "Admin")
                 {
                     SefForma forma = new SefForma();
                     this.Hide();
-
+                    forma.logSef = log;
                     forma.Show();
                     forma.WindowState = FormWindowState.Maximized;
 
                 }
                 else
-                    MessageBox.Show("Neispravno korisnicko ime ili lozinka!","Greska");
+                {
+                    textBoxKorisnickoIme.Clear();
+                    textBoxLozinka.Clear();
+                    MessageBox.Show("Neispravno korisnicko ime ili lozinka!", "Greska");
+                }
             }
-            catch  (Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Greska");
-
+                if (ex is SystemException             ||
+                    ex is NotSupportedException       ||
+                    ex is UnauthorizedAccessException ||
+                    ex is FormatException             ||
+                    ex is IndexOutOfRangeException    ||
+                    ex is InsufficientMemoryException ||
+                    ex is EntryPointNotFoundException ||
+                    ex is EntryPointNotFoundException ||
+                    ex is EvaluateException           ||
+                    ex is InvalidCastException        ||
+                    ex is InvalidProgramException)
+                    MessageBox.Show(ex.Message, "Greska");
+                else
+                    MessageBox.Show(ex.Message, "Greska");
             }
 
         }
-
+       
         private void LoginForma_KeyPress(object sender, KeyPressEventArgs e)
         {
      

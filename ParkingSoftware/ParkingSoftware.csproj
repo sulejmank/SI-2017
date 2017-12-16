@@ -46,15 +46,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoginClass.cs" />
+    <Compile Include="DodajKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajKorisnika.Designer.cs">
+      <DependentUpon>DodajKorisnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DodajVozilo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajVozilo.Designer.cs">
+      <DependentUpon>DodajVozilo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IzbrisiKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IzbrisiKorisnika.Designer.cs">
+      <DependentUpon>IzbrisiKorisnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IzmenaMesta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IzmenaMesta.Designer.cs">
+      <DependentUpon>IzmenaMesta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IzmeniKorisnika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IzmeniKorisnika.Designer.cs">
+      <DependentUpon>IzmeniKorisnika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Korisnik.cs" />
     <Compile Include="LoginForma.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForma.Designer.cs">
       <DependentUpon>LoginForma.cs</DependentUpon>
     </Compile>
+    <Compile Include="Naplata.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Naplata.Designer.cs">
+      <DependentUpon>Naplata.cs</DependentUpon>
+    </Compile>
     <Compile Include="Parking.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="PromenaCena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PromenaCena.Designer.cs">
+      <DependentUpon>PromenaCena.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Racun.cs" />
     <Compile Include="RadnikForma.cs">
@@ -69,9 +111,42 @@
     <Compile Include="SefForma.Designer.cs">
       <DependentUpon>SefForma.cs</DependentUpon>
     </Compile>
+    <Compile Include="StampajRacun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StampajRacun.Designer.cs">
+      <DependentUpon>StampajRacun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Uvid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uvid.Designer.cs">
+      <DependentUpon>Uvid.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vozilo.cs" />
+    <EmbeddedResource Include="DodajKorisnika.resx">
+      <DependentUpon>DodajKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DodajVozilo.resx">
+      <DependentUpon>DodajVozilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IzbrisiKorisnika.resx">
+      <DependentUpon>IzbrisiKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IzmenaMesta.resx">
+      <DependentUpon>IzmenaMesta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IzmeniKorisnika.resx">
+      <DependentUpon>IzmeniKorisnika.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForma.resx">
       <DependentUpon>LoginForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Naplata.resx">
+      <DependentUpon>Naplata.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PromenaCena.resx">
+      <DependentUpon>PromenaCena.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -88,6 +163,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SefForma.resx">
       <DependentUpon>SefForma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StampajRacun.resx">
+      <DependentUpon>StampajRacun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uvid.resx">
+      <DependentUpon>Uvid.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
