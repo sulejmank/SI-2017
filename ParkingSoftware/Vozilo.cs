@@ -221,9 +221,9 @@ namespace ParkingSoftware
             }
         }
 
-        public void PoTablicama()
+        public bool PoTablicama()
         {
-           
+            bool a = true;
 
             try
             {
@@ -232,17 +232,18 @@ namespace ParkingSoftware
                 OleDbCommand comm = new OleDbCommand();
                 comm.Connection = connection;
                 comm.CommandText = "select * from Vozilo where Tablice='" + Tablice + "';";
+                
 
                 OleDbDataReader reader = comm.ExecuteReader();
-
                 while (reader.Read())
                 {
-                    
+                    if (reader.HasRows)
+                        Dolazak = (DateTime)reader["Dolazak"];
 
-                    Tablice = reader["Tablice"].ToString();
-                    Dolazak = (DateTime)reader["Dolazak"];
+                    else
+                        a = false;
 
-                  
+
                 }
 
                 connection.Close();
@@ -269,7 +270,7 @@ namespace ParkingSoftware
                     connection.Close();
                 }
             }
-
+            return a;
         }
     }
 }

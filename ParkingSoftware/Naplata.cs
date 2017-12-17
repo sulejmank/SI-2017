@@ -61,9 +61,9 @@ namespace ParkingSoftware
 
                 racun.ShowDialog();
                 dataGridViewVozila.Rows.RemoveAt(e.RowIndex);
-               // UcitajGrid();
+                // UcitajGrid();
             }
-            catch(Exception exx)
+            catch (Exception exx)
             {
                 MessageBox.Show(exx.Message, "Greska");
             }
@@ -91,30 +91,42 @@ namespace ParkingSoftware
                 try
                 {
                     int br = 0;
-                    foreach (Vozilo v in SvaVozila) {
+                    foreach (Vozilo v in SvaVozila) 
                         if (v.Tablice == textBox1.Text)
-                        {
                             br++;
-                            //SvaVozila.Remove(v);
-
-                        }
-                    }
-                       if(br != 0) {
+         
+                    
+                       if(br == 1) {
 
                             Vozilo trazi = new Vozilo();
                             trazi.Tablice = textBox1.Text;
-                            trazi.PoTablicama();
 
+
+                        if (trazi.PoTablicama())
+
+                        {
                             StampajRacun racun = new StampajRacun();
                             racun.Tablice = trazi.Tablice;
                             racun.Dolazak = trazi.Dolazak;
                             racun.Radnik = Radnik;
 
+
+                            for (int i = 0; i < dataGridViewVozila.RowCount; i++)
+                            {
+                                string tablice = dataGridViewVozila.Rows[i].Cells[0].FormattedValue.ToString();
+                                if (textBox1.Text == tablice)
+                                    dataGridViewVozila.Rows.RemoveAt(i);
+                            }
+                            
+
                             racun.ShowDialog();
                             textBox1.Clear();
+                            this.Invalidate();
+                        }
+                        
                         }
                         else
-                            MessageBox.Show("Unesite tacne tablice!", "1reska");
+                            MessageBox.Show("Unesite tacne tablice!", "Greska");
 
                 }
                 catch (Exception ex)
@@ -137,20 +149,7 @@ namespace ParkingSoftware
             else
                 MessageBox.Show("Unesite tablice!", "4reska");
 
-            /* try
-             {
-                 for (int i = 0; i < dataGridViewVozila.RowCount; i++)
-                 {
-                     string tablice = dataGridViewVozila.Rows[i].Cells[0].FormattedValue.ToString();
-                     if (textBox1.Text == tablice)
-                         dataGridViewVozila.Rows.RemoveAt(i);
-                 }
-             }
-             catch (Exception ex)
-             {
-                 MessageBox.Show(ex.Message, "Greska");
-             }*/
-//            
+           
         }
 
         private void buttonZavrsi_Click(object sender, EventArgs e)

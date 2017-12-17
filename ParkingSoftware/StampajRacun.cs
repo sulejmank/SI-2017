@@ -79,10 +79,8 @@ namespace ParkingSoftware
                 vozilo.MakniVozilo();
 
 
-
-                Naplata forma = new Naplata();
-
                 this.Close();
+
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Greska");

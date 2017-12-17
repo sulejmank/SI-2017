@@ -179,6 +179,7 @@ namespace ParkingSoftware
                     ex is EntryPointNotFoundException ||
                     ex is EvaluateException           ||
                     ex is InvalidCastException        ||
+                    ex is AccessViolationException    ||
                     ex is InvalidProgramException)
                     MessageBox.Show(ex.Message, "GRESKA");
                 else
