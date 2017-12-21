@@ -78,9 +78,8 @@ namespace ParkingSoftware
                     MessageBox.Show(ex.Message, "sGreska");
 
                 if (connection != null)
-                {
                     connection.Close();
-                }
+                
             }
         }
               public List<Racun> ZavrsiSmenu(string r)
@@ -89,7 +88,7 @@ namespace ParkingSoftware
                      List<Racun> smena = new List<Racun>();
                      List<Racun> s = new List<Racun>();
                      DateTime vreme = DateTime.Now.AddHours(-8);
-            try
+                try
                 {
                         
                      connection.Open();
@@ -106,7 +105,6 @@ namespace ParkingSoftware
                         racun.VremeDolaska =(DateTime) reader["Dolazak"];
                         racun.VremeOdlaska = (DateTime)reader["Odlazak"];
                         racun.Naplata = Decimal.Parse(reader["Naplata"].ToString());
-                      //  racun.Radnik.Ime = reader["Radnik"].ToString();
 
                         s.Add(racun);
                     }
@@ -134,15 +132,14 @@ namespace ParkingSoftware
                     MessageBox.Show(ex.Message, "Greska");
 
                 if (connection != null)
-                {
                     connection.Close();
-                }
+                
             }
 
-            foreach (Racun x in s) {
+            foreach (Racun x in s) 
                 if (x.VremeOdlaska > vreme)
                     smena.Add(x);
-                    }
+                    
             return smena;
         }
 
@@ -179,24 +176,23 @@ namespace ParkingSoftware
             }
             catch (Exception ex)
             {
-                if (ex is SystemException ||
-                    ex is OleDbException ||
-                    ex is NotSupportedException ||
+                if (ex is SystemException             ||
+                    ex is OleDbException              ||
+                    ex is NotSupportedException       ||
                     ex is UnauthorizedAccessException ||
-                    ex is FormatException ||
-                    ex is IndexOutOfRangeException ||
+                    ex is FormatException             ||
+                    ex is IndexOutOfRangeException    ||
                     ex is InsufficientMemoryException ||
                     ex is EntryPointNotFoundException ||
                     ex is EntryPointNotFoundException ||
-                    ex is InvalidCastException ||
+                    ex is InvalidCastException        ||
                     ex is InvalidProgramException)
                     MessageBox.Show(ex.Message, "Greska");
                 else
                     MessageBox.Show(ex.Message, "Greska");
                 if (connection != null)
-                {
                     connection.Close();
-                }
+                
             }
 
             return dnevni;
@@ -226,7 +222,7 @@ namespace ParkingSoftware
                     racun.Naplata = Decimal.Parse(reader["Naplata"].ToString());
                     racun.VremeOdlaska = (DateTime)reader["Odlazak"];
 
-                    if (racun.VremeOdlaska >= DateTime.Now.AddDays(-30))
+                    if (racun.VremeOdlaska >= DateTime.Now.AddMonths(-1))
                         mesecni.Add(racun);
                 }
 
@@ -235,24 +231,23 @@ namespace ParkingSoftware
             }
             catch (Exception ex)
             {
-                if (ex is SystemException ||
-                    ex is OleDbException ||
-                    ex is NotSupportedException ||
+                if (ex is SystemException             ||
+                    ex is OleDbException              ||
+                    ex is NotSupportedException       ||
                     ex is UnauthorizedAccessException ||
-                    ex is FormatException ||
-                    ex is IndexOutOfRangeException ||
+                    ex is FormatException             ||
+                    ex is IndexOutOfRangeException    ||
                     ex is InsufficientMemoryException ||
                     ex is EntryPointNotFoundException ||
                     ex is EntryPointNotFoundException ||
-                    ex is InvalidCastException ||
+                    ex is InvalidCastException        ||
                     ex is InvalidProgramException)
                     MessageBox.Show(ex.Message, "Greska");
                 else
                     MessageBox.Show(ex.Message, "Greska");
                 if (connection != null)
-                {
                     connection.Close();
-                }
+                
             }
 
             return mesecni;

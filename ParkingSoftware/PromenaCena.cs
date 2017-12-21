@@ -35,11 +35,30 @@ namespace ParkingSoftware
             p.promeni_cene();
 
             MessageBox.Show("Uspesno ste promenili cene!", "Uspesna izmena");
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox1.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Molimo vas unesite samo brojeve.");
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox2.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Molimo vas unesite samo brojeve.");
+                textBox2.Text = textBox2.Text.Remove(textBox2.Text.Length - 1);
+            }
         }
     }
 }

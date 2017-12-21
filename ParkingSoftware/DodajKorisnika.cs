@@ -86,5 +86,34 @@ namespace ParkingSoftware
                 textBox4.UseSystemPasswordChar = true;
 
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox1.Text, "[^A-Z_a-z]"))
+            {
+                MessageBox.Show("Molimo vas unesite samo text.");
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox2.Text, "[^A-Z_a-z]"))
+            {
+                MessageBox.Show("Molimo vas unesite samo tekst.");
+                textBox2.Text = textBox2.Text.Remove(textBox2.Text.Length - 1);
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox3.Text, "[^A-Z_a-z]"))
+            {
+                MessageBox.Show("Molimo vas unesite samo tekst.");
+                textBox3.Text = textBox3.Text.Remove(textBox3.Text.Length - 1);
+            }
+        }
     }
 }

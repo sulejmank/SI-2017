@@ -22,7 +22,8 @@ namespace ParkingSoftware
 
         public void ucitaj_list()
         {
-            try {
+            try
+            {
                 Korisnik korisnik = new Korisnik();
 
                 korisnici = korisnik.izlistaj_korisnike();
@@ -30,7 +31,7 @@ namespace ParkingSoftware
                 foreach (Korisnik x in korisnici)
                     listBox1.Items.Add(x.Ime);
             }
-            catch(Exception ex )
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Greska!");
             }
@@ -40,8 +41,8 @@ namespace ParkingSoftware
         {
             string ime = listBox1.SelectedItem.ToString();
 
-            foreach(Korisnik x in korisnici)
-                if(x.Ime == ime)
+            foreach (Korisnik x in korisnici)
+                if (x.Ime == ime)
                 {
                     textBox1.Text = x.Ime;
                     textBox2.Text = x.Prezime;
@@ -77,6 +78,8 @@ namespace ParkingSoftware
                     korisnik.id = Int32.Parse(textBox5.Text);
                     korisnik.korisnicko_ime = textBox3.Text;
                     korisnik.lozinka = Convert.ToBase64String(hash_pass);
+
+
                     korisnik.Uloga = comboBox1.SelectedItem.ToString();
 
                     korisnik.izmeni_korisnika();
@@ -106,6 +109,35 @@ namespace ParkingSoftware
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox1.Text, "[^A-Z_a-z]"))
+            {
+                MessageBox.Show("Molimo vas unesite samo tekst.");
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox2.Text, "[^A-Z_a-z]"))
+            {
+                MessageBox.Show("Molimo vas unesite samo tekst.");
+                textBox2.Text = textBox2.Text.Remove(textBox2.Text.Length - 1);
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox3.Text, "[^A-Z_a-z]"))
+            {
+                MessageBox.Show("Molimo vas unesite samo tekst.");
+                textBox3.Text = textBox3.Text.Remove(textBox3.Text.Length - 1);
+            }
         }
     }
 }

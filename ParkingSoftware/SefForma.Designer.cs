@@ -47,6 +47,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxBrojSlobodnih = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.otvoriProzorZaRadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.odjaviSeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,6 +152,9 @@
             // 
             // odjavaToolStripMenuItem
             // 
+            this.odjavaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.otvoriProzorZaRadToolStripMenuItem,
+            this.odjaviSeToolStripMenuItem});
             this.odjavaToolStripMenuItem.Font = new System.Drawing.Font("Century Gothic", 12.25F);
             this.odjavaToolStripMenuItem.Name = "odjavaToolStripMenuItem";
             this.odjavaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
@@ -226,6 +231,20 @@
             this.label3.Text = "Broj Slobodnih Parking Mesta:";
             this.label3.Visible = false;
             // 
+            // otvoriProzorZaRadToolStripMenuItem
+            // 
+            this.otvoriProzorZaRadToolStripMenuItem.Name = "otvoriProzorZaRadToolStripMenuItem";
+            this.otvoriProzorZaRadToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
+            this.otvoriProzorZaRadToolStripMenuItem.Text = "Otvori Prozor za Rad";
+            this.otvoriProzorZaRadToolStripMenuItem.Click += new System.EventHandler(this.otvoriProzorZaRadToolStripMenuItem_Click);
+            // 
+            // odjaviSeToolStripMenuItem
+            // 
+            this.odjaviSeToolStripMenuItem.Name = "odjaviSeToolStripMenuItem";
+            this.odjaviSeToolStripMenuItem.Size = new System.Drawing.Size(249, 26);
+            this.odjaviSeToolStripMenuItem.Text = "Odjavi se";
+            this.odjaviSeToolStripMenuItem.Click += new System.EventHandler(this.odjaviSeToolStripMenuItem_Click);
+            // 
             // SefForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,5 +295,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxBrojSlobodnih;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem otvoriProzorZaRadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem odjaviSeToolStripMenuItem;
     }
 }

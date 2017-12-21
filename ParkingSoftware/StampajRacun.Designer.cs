@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxUkupno = new System.Windows.Forms.TextBox();
             this.buttonStampaj = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label5
@@ -136,9 +137,18 @@
             this.buttonStampaj.Name = "buttonStampaj";
             this.buttonStampaj.Size = new System.Drawing.Size(298, 65);
             this.buttonStampaj.TabIndex = 22;
-            this.buttonStampaj.Text = "Stampaj Racun";
+            this.buttonStampaj.Text = "Štampaj Racun";
             this.buttonStampaj.UseVisualStyleBackColor = true;
             this.buttonStampaj.Click += new System.EventHandler(this.buttonStampaj_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(467, 218);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 21);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "(din)";
             // 
             // StampajRacun
             // 
@@ -146,6 +156,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(621, 378);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonStampaj);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxUkupno);
@@ -179,5 +190,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxUkupno;
         private System.Windows.Forms.Button buttonStampaj;
+        private System.Windows.Forms.Label label4;
     }
 }

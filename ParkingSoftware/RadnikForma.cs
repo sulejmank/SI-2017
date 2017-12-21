@@ -71,17 +71,17 @@ namespace ParkingSoftware
             }
             catch (Exception ex)
             {
-                if (ex is SystemException ||
-                    ex is OleDbException ||
-                    ex is NotSupportedException ||
+                if (ex is SystemException             ||
+                    ex is OleDbException              ||
+                    ex is NotSupportedException       ||
                     ex is UnauthorizedAccessException ||
-                    ex is FormatException ||
-                    ex is IndexOutOfRangeException ||
+                    ex is FormatException             ||
+                    ex is IndexOutOfRangeException    ||
                     ex is InsufficientMemoryException ||
                     ex is EntryPointNotFoundException ||
                     ex is EntryPointNotFoundException ||
-                    ex is EvaluateException ||
-                    ex is InvalidCastException ||
+                    ex is EvaluateException           ||
+                    ex is InvalidCastException        ||
                     ex is InvalidProgramException)
                     MessageBox.Show(ex.Message, "Greska");
                 else
@@ -144,12 +144,11 @@ namespace ParkingSoftware
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Naplata naplata = new Naplata();
-            naplata.Radnik = logRadnik;
-
 
             try
             {
+                Naplata naplata = new Naplata();
+                naplata.Radnik = logRadnik;
                 naplata.ShowDialog();
 
                 textBoxRadnik.Text = logRadnik.Ime;
@@ -201,6 +200,7 @@ namespace ParkingSoftware
         {
             try
             {
+
                 decimal ukupanSaldo = 0;
                 Racun racuni = new Racun();
 

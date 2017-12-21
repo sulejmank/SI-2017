@@ -97,5 +97,15 @@ namespace ParkingSoftware
         {
      
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+                textBoxLozinka.UseSystemPasswordChar = false;
+            else if (!checkBox1.Checked)
+                textBoxLozinka.UseSystemPasswordChar = true;
+            else
+                textBoxLozinka.UseSystemPasswordChar = true;
+        }
     }
 }

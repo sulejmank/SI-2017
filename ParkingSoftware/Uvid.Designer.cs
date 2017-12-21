@@ -44,6 +44,8 @@
             this.labelUkuonoMesec = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonZavrsi = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVozila)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -125,7 +127,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 20);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Dnevni Izvestaj";
+            this.label1.Text = "Dnevni Izveštaj";
             // 
             // label2
             // 
@@ -134,7 +136,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(131, 20);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Mesecni Izvestaj";
+            this.label2.Text = "Mesecni Izveštaj";
             // 
             // label3
             // 
@@ -178,9 +180,27 @@
             this.buttonZavrsi.Name = "buttonZavrsi";
             this.buttonZavrsi.Size = new System.Drawing.Size(176, 51);
             this.buttonZavrsi.TabIndex = 11;
-            this.buttonZavrsi.Text = "Zavrsi";
+            this.buttonZavrsi.Text = "Završi";
             this.buttonZavrsi.UseVisualStyleBackColor = true;
             this.buttonZavrsi.Click += new System.EventHandler(this.buttonZavrsi_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(569, 381);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 20);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "(din)";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(124, 381);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 20);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "(din)";
             // 
             // Uvid
             // 
@@ -188,6 +208,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(802, 491);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.buttonZavrsi);
             this.Controls.Add(this.labelUkuonoMesec);
             this.Controls.Add(this.label5);
@@ -205,6 +227,7 @@
             this.Name = "Uvid";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Uvid";
+            this.Load += new System.EventHandler(this.Uvid_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVozila)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -229,5 +252,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Dolazak;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tablice;
         private System.Windows.Forms.Button buttonZavrsi;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
     }
 }

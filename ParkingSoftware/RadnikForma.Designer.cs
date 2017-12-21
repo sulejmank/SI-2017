@@ -149,7 +149,7 @@
             this.buttonZavrsi.Name = "buttonZavrsi";
             this.buttonZavrsi.Size = new System.Drawing.Size(151, 36);
             this.buttonZavrsi.TabIndex = 11;
-            this.buttonZavrsi.Text = "Zavrsi Smenu";
+            this.buttonZavrsi.Text = "Završi Smenu";
             this.buttonZavrsi.UseVisualStyleBackColor = true;
             this.buttonZavrsi.Click += new System.EventHandler(this.buttonZavrsi_Click);
             // 

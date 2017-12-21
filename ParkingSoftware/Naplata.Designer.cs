@@ -80,7 +80,7 @@
             // 
             // buttonPronadji
             // 
-            this.buttonPronadji.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPronadji.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonPronadji.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPronadji.Location = new System.Drawing.Point(333, 351);
             this.buttonPronadji.Name = "buttonPronadji";
@@ -92,6 +92,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.label1.Location = new System.Drawing.Point(73, 365);
@@ -102,6 +103,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBox1.Location = new System.Drawing.Point(158, 363);
@@ -119,7 +121,7 @@
             this.buttonZavrsi.Name = "buttonZavrsi";
             this.buttonZavrsi.Size = new System.Drawing.Size(176, 51);
             this.buttonZavrsi.TabIndex = 10;
-            this.buttonZavrsi.Text = "Zavrsi";
+            this.buttonZavrsi.Text = "Završi";
             this.buttonZavrsi.UseVisualStyleBackColor = true;
             this.buttonZavrsi.Click += new System.EventHandler(this.buttonZavrsi_Click);
             // 

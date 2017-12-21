@@ -13,10 +13,11 @@ namespace ParkingSoftware
     public partial class StampajRacun : Form
     {
         public string Tablice { get; set; }
-        public DateTime Dolazak { get; set; }
+        public DateTime Dolazak = DateTime.Now;
         public Korisnik Radnik { get; set; }
         public decimal cena { get; set; }
         public List<Racun> Smena { get; set; }
+
         public StampajRacun()
         {
             InitializeComponent();
@@ -48,12 +49,24 @@ namespace ParkingSoftware
 
                 parking.TrenutnoStanje();
 
+                if (span.Hours < 8)
+                {
+                    cena = parking.CenaPoSatu / 60;
 
-                cena = parking.CenaPoSatu / 60;
+                    cena *= Decimal.Parse(span.TotalMinutes.ToString());
 
-                cena *= Decimal.Parse(span.TotalMinutes.ToString());
-
-                textBoxUkupno.Text = cena.ToString("#");
+                    textBoxUkupno.Text = cena.ToString("#");
+                }
+                else if(span.Hours < 16)
+                {
+                    cena = parking.CenaPoDanu;
+                    textBoxUkupno.Text = cena.ToString("#");
+                }
+                else
+                {
+                    cena = parking.CenaPoDanu * 2;
+                    textBoxUkupno.Text = cena.ToString("#");
+                }
 
             }
             catch(Exception ex)

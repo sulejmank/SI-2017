@@ -71,5 +71,10 @@ namespace ParkingSoftware
         {
             this.Close();
         }
+
+        private void Uvid_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

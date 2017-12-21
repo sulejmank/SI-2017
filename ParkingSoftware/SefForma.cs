@@ -37,9 +37,7 @@ namespace ParkingSoftware
 
         private void odjavaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
-            LoginForma forma = new LoginForma();
-            forma.Show();
+            
         }
 
         private void SefForma_Load(object sender, EventArgs e)
@@ -175,6 +173,21 @@ namespace ParkingSoftware
         {
             IzmenaMesta zime = new IzmenaMesta();
             zime.ShowDialog();
+        }
+
+        private void otvoriProzorZaRadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RadnikForma forma = new RadnikForma();
+
+            forma.logRadnik = logSef;
+            forma.ShowDialog();
+        }
+
+        private void odjaviSeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoginForma forma = new LoginForma();
+            forma.Show();
         }
     }
 }
