@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GMap.NET;
+using GMap.NET.MapProviders;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,7 +25,22 @@ namespace ParkingSoftware
            
             InitializeComponent();
             timer1.Start();
-    }
+ /*
+            gMapControl1.MapProvider = GMapProviders.GoogleSatelliteMap;
+            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerOnly;
+            gMapControl1.SetPositionByKeywords("Novi Pazar");
+
+
+            double lon = 43.1396959;
+            double lag = 20.517238;
+            gMapControl1.Position = new PointLatLng(lon, lag);
+
+            gMapControl1.ShowCenter = false;
+            gMapControl1.MaxZoom = 20;
+            gMapControl1.CanDragMap = true;
+            */
+
+        }
 
         private void RadnikForma_Load(object sender, EventArgs e)
         {
@@ -209,14 +226,33 @@ namespace ParkingSoftware
                 foreach (Racun r in Smena)
                     ukupanSaldo += (decimal)r.Naplata;
 
-                MessageBox.Show("Ukupan Saldo Smene: " + ukupanSaldo.ToString() +
-                                "\n" + "Radnik: " + logRadnik.Ime , "Kraj Smene");
+                Smena s = new Smena();
+                s.saldo = ukupanSaldo;
+                s.rad = logRadnik.Ime;
+                s.ShowDialog();
+
+               // MessageBox.Show(ukupanSaldo.ToString() + logRadnik.Ime);
+
+                
+
                 
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Greska");
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

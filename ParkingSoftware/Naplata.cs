@@ -38,7 +38,12 @@ namespace ParkingSoftware
                 SvaVozila = v.SvaVozila();
 
                 foreach (Vozilo x in SvaVozila)
-                    dataGridViewVozila.Rows.Add(x.Tablice, x.Dolazak);
+                {
+                    TimeSpan span = DateTime.Now.Subtract(x.Dolazak);
+                    dataGridViewVozila.Rows.Add(x.Tablice, span.TotalMinutes.ToString("#"),x.Dolazak);
+                }
+
+                dataGridViewVozila.Sort(dataGridViewVozila.Columns[1], ListSortDirection.Descending);
             }
             catch(Exception ex)
             {
@@ -52,7 +57,7 @@ namespace ParkingSoftware
             try
             {
                 string tablice = dataGridViewVozila.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                DateTime dolazak = (DateTime)dataGridViewVozila.Rows[e.RowIndex].Cells[1].Value;
+                DateTime dolazak = (DateTime)dataGridViewVozila.Rows[e.RowIndex].Cells[2].Value;
 
                 StampajRacun racun = new StampajRacun();
                 racun.Tablice = tablice;
@@ -114,7 +119,7 @@ namespace ParkingSoftware
                                 if (textBox1.Text == tablice)
 
                                 {
-                                    dolazak = (DateTime)dataGridViewVozila.Rows[i].Cells[1].Value;
+                                    dolazak = (DateTime)dataGridViewVozila.Rows[i].Cells[2].Value;
                                     dataGridViewVozila.Rows.RemoveAt(i);
                                     racun.Tablice = textBox1.Text;
                                     racun.Dolazak = dolazak;
@@ -149,12 +154,12 @@ namespace ParkingSoftware
                         ex is EvaluateException           ||
                         ex is InvalidCastException        ||
                         ex is InvalidProgramException)
-                        MessageBox.Show(ex.Message, "2reska");
+                        MessageBox.Show(ex.Message, "Greska");
                     else
-                        MessageBox.Show(ex.Message, "3reska");
+                        MessageBox.Show(ex.Message, "Greska");
                 }
             else
-                MessageBox.Show("Unesite tablice!", "4reska");
+                MessageBox.Show("Unesite tablice!", "Greska");
 
            
         }

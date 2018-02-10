@@ -95,10 +95,13 @@
             // buttonDodajVozilo
             // 
             this.buttonDodajVozilo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonDodajVozilo.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.buttonDodajVozilo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonDodajVozilo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
             this.buttonDodajVozilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDodajVozilo.Location = new System.Drawing.Point(16, 205);
+            this.buttonDodajVozilo.Location = new System.Drawing.Point(16, 192);
             this.buttonDodajVozilo.Name = "buttonDodajVozilo";
-            this.buttonDodajVozilo.Size = new System.Drawing.Size(151, 36);
+            this.buttonDodajVozilo.Size = new System.Drawing.Size(166, 49);
             this.buttonDodajVozilo.TabIndex = 4;
             this.buttonDodajVozilo.Text = "Dodaj Vozilo";
             this.buttonDodajVozilo.UseVisualStyleBackColor = true;
@@ -107,10 +110,13 @@
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Location = new System.Drawing.Point(16, 274);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 36);
+            this.button1.Size = new System.Drawing.Size(166, 49);
             this.button1.TabIndex = 5;
             this.button1.Text = "Naplati";
             this.button1.UseVisualStyleBackColor = true;
@@ -119,10 +125,13 @@
             // buttonOdjava
             // 
             this.buttonOdjava.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonOdjava.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.buttonOdjava.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonOdjava.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
             this.buttonOdjava.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonOdjava.Location = new System.Drawing.Point(703, 274);
             this.buttonOdjava.Name = "buttonOdjava";
-            this.buttonOdjava.Size = new System.Drawing.Size(151, 36);
+            this.buttonOdjava.Size = new System.Drawing.Size(151, 49);
             this.buttonOdjava.TabIndex = 8;
             this.buttonOdjava.Text = "Odjavi se";
             this.buttonOdjava.UseVisualStyleBackColor = true;
@@ -144,10 +153,13 @@
             // buttonZavrsi
             // 
             this.buttonZavrsi.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonZavrsi.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.buttonZavrsi.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonZavrsi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
             this.buttonZavrsi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonZavrsi.Location = new System.Drawing.Point(703, 205);
+            this.buttonZavrsi.Location = new System.Drawing.Point(703, 192);
             this.buttonZavrsi.Name = "buttonZavrsi";
-            this.buttonZavrsi.Size = new System.Drawing.Size(151, 36);
+            this.buttonZavrsi.Size = new System.Drawing.Size(151, 49);
             this.buttonZavrsi.TabIndex = 11;
             this.buttonZavrsi.Text = "Završi Smenu";
             this.buttonZavrsi.UseVisualStyleBackColor = true;

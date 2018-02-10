@@ -40,5 +40,26 @@ namespace ParkingSoftware
         {
 
         }
+
+        private void textBoxTablice_TextChanged(object sender, EventArgs e)
+        {
+            textBoxTablice.AutoCompleteMode = AutoCompleteMode.Suggest;
+            textBoxTablice.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+
+            AutoCompleteStringCollection data = new AutoCompleteStringCollection();
+
+            data.Add("NP-");
+            data.Add("BG-");
+            data.Add("RA-");
+            data.Add("TT-");
+            data.Add("KG-");
+            data.Add("KR-");
+            data.Add("NS-");
+            data.Add("KM-");
+
+
+            textBoxTablice.AutoCompleteCustomSource = data;
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace ParkingSoftware
             textBoxKorisnickoIme.KeyDown += new KeyEventHandler(tb_keyDown);
             textBoxLozinka.KeyDown += new KeyEventHandler(tb_keyDown);
 
+
         }
 
         private void tb_keyDown(object sender, KeyEventArgs e)
@@ -47,7 +48,8 @@ namespace ParkingSoftware
                 log.proveri_korisnika();
 
 
-                if (log.Uloga == "radnik" || log.Uloga == "Radnik")
+                if (log.Uloga == "radnik" || 
+                    log.Uloga == "Radnik")
                 {
                     RadnikForma forma = new RadnikForma();
                     this.Hide();
@@ -56,13 +58,14 @@ namespace ParkingSoftware
                     forma.Show();
                     forma.WindowState = FormWindowState.Maximized;
                 }
-                else if (log.Uloga == "Sef" ||
-                         log.Uloga == "admin" || log.Uloga == "Admin")
+                else if (log.Uloga == "Sef"   ||
+                         log.Uloga == "admin" ||
+                         log.Uloga == "Admin")
                 {
                     SefForma forma = new SefForma();
                     this.Hide();
-                    forma.logSef = log;
                     forma.Show();
+                    forma.logSef = log;
                     forma.WindowState = FormWindowState.Maximized;
 
                 }
@@ -106,6 +109,15 @@ namespace ParkingSoftware
                 textBoxLozinka.UseSystemPasswordChar = true;
             else
                 textBoxLozinka.UseSystemPasswordChar = true;
+        }
+
+        private void textBoxKorisnickoIme_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBoxKorisnickoIme.Text, "[^A-Z,a-z,0-9]"))
+            {
+                MessageBox.Show("Molimo vas unesite samo tekst i brojeve.");
+                textBoxKorisnickoIme.Text = textBoxKorisnickoIme.Text.Remove(textBoxKorisnickoIme.Text.Length - 1);
+            }
         }
     }
 }

@@ -64,10 +64,10 @@
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(376, 276);
+            this.button2.Location = new System.Drawing.Point(365, 242);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 54);
+            this.button2.Size = new System.Drawing.Size(138, 54);
             this.button2.TabIndex = 31;
             this.button2.Text = "Odustani";
             this.button2.UseVisualStyleBackColor = true;

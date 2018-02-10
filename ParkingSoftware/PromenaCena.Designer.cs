@@ -45,9 +45,9 @@
             this.label2.Location = new System.Drawing.Point(21, 94);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 20);
+            this.label2.Size = new System.Drawing.Size(120, 20);
             this.label2.TabIndex = 22;
-            this.label2.Text = "Cena po Danu:";
+            this.label2.Text = "Cena po danu:";
             // 
             // textBox2
             // 
@@ -64,9 +64,9 @@
             this.label1.Location = new System.Drawing.Point(21, 46);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 20);
+            this.label1.Size = new System.Drawing.Size(112, 20);
             this.label1.TabIndex = 20;
-            this.label1.Text = "Cena po Satu:";
+            this.label1.Text = "Cena po satu:";
             // 
             // textBox1
             // 
@@ -79,6 +79,8 @@
             // 
             // button1
             // 
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(180, 178);
@@ -91,6 +93,8 @@
             // 
             // buttonLogin
             // 
+            this.buttonLogin.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.buttonLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightCyan;
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.Location = new System.Drawing.Point(33, 178);

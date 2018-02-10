@@ -52,12 +52,12 @@ namespace ParkingSoftware
                 connection.Open();
                 OleDbCommand comm = new OleDbCommand();
                 comm.Connection = connection;
-                comm.CommandText = "insert into Racun(Dolazak,Odlazak,Naplata,Radnik) values('" + VremeDolaska + "','" + DateTime.Now + "'," + Naplata + ",'" + Radnik.Ime + "');";
+
+                comm.CommandText = "insert into Racun(Dolazak,Odlazak,Naplata,Radnik) values('" + VremeDolaska + "','" + DateTime.Now + "'," + Naplata + ",'" + Radnik.Ime + "');"; //'" + VremeDolaska + "','" + DateTime.Now + "'," + Naplata + ",'" + Radnik.Ime + "'
+
                 comm.ExecuteNonQuery();
 
                 connection.Close();
-
-
 
             }
             catch (Exception ex)
@@ -73,9 +73,9 @@ namespace ParkingSoftware
                     ex is EntryPointNotFoundException ||
                     ex is InvalidCastException        ||
                     ex is InvalidProgramException)
-                    MessageBox.Show(ex.Message, "aGreska");
+                    MessageBox.Show(ex.Message, "Greska");
                 else
-                    MessageBox.Show(ex.Message, "sGreska");
+                    MessageBox.Show(ex.Message, "Greska");
 
                 if (connection != null)
                     connection.Close();
@@ -166,8 +166,8 @@ namespace ParkingSoftware
                     racun.ime = reader["Radnik"].ToString();
                     racun.Naplata = Decimal.Parse(reader["Naplata"].ToString());
                     racun.VremeOdlaska =(DateTime) reader["Odlazak"];
+                    racun.VremeDolaska = (DateTime)reader["Dolazak"];
 
-                    if(racun.VremeOdlaska >= DateTime.Now.AddDays(-1))
                          dnevni.Add(racun);
                 }
 
@@ -221,6 +221,7 @@ namespace ParkingSoftware
                     racun.ime = reader["Radnik"].ToString();
                     racun.Naplata = Decimal.Parse(reader["Naplata"].ToString());
                     racun.VremeOdlaska = (DateTime)reader["Odlazak"];
+                    
 
                     if (racun.VremeOdlaska >= DateTime.Now.AddMonths(-1))
                         mesecni.Add(racun);

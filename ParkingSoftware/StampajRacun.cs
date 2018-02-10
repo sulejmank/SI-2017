@@ -13,10 +13,13 @@ namespace ParkingSoftware
     public partial class StampajRacun : Form
     {
         public string Tablice { get; set; }
+
         public DateTime Dolazak = DateTime.Now;
         public Korisnik Radnik { get; set; }
         public decimal cena { get; set; }
         public List<Racun> Smena { get; set; }
+
+        public string parkinginfo { get; set; }
 
         public StampajRacun()
         {
@@ -38,16 +41,23 @@ namespace ParkingSoftware
         {
             try
             {
-             
+
                 textBoxTablice.Text = Tablice;
                 textBoxVremeDolaska.Text = Dolazak.ToString();
                 textBoxVremeOdlaska.Text = DateTime.Now.ToString();
 
+
                 TimeSpan span = DateTime.Now.Subtract(Dolazak);
+                textBox1.Text = span.TotalMinutes.ToString("#");
 
                 Parking parking = new Parking();
 
                 parking.TrenutnoStanje();
+
+                textBox2.Text = parking.naziv + "," + parking.adresa;
+
+                int c = 0;
+               
 
                 if (span.Hours < 8)
                 {
@@ -57,16 +67,14 @@ namespace ParkingSoftware
 
                     textBoxUkupno.Text = cena.ToString("#");
                 }
-                else if(span.Hours < 16)
+                else 
                 {
-                    cena = parking.CenaPoDanu;
+                    c = span.Hours / 8; 
+                    cena = parking.CenaPoDanu * c + (span.Hours % 8)*parking.CenaPoSatu;
                     textBoxUkupno.Text = cena.ToString("#");
                 }
-                else
-                {
-                    cena = parking.CenaPoDanu * 2;
-                    textBoxUkupno.Text = cena.ToString("#");
-                }
+
+               
 
             }
             catch(Exception ex)
@@ -78,6 +86,7 @@ namespace ParkingSoftware
         private void buttonStampaj_Click(object sender, EventArgs e)
         {
             try {
+
                 Vozilo vozilo = new Vozilo();
                 Racun racun = new Racun();
 

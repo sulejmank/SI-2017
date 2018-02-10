@@ -173,6 +173,18 @@ namespace ParkingSoftware
         {
             IzmenaMesta zime = new IzmenaMesta();
             zime.ShowDialog();
+
+            Parking parking = new Parking();
+            Vozilo vozilo = new Vozilo();
+
+            parking.TrenutnoStanje();
+
+            int BrojSlobodnih = parking.BrojMesta - vozilo.IzbrojVozila();
+
+            textBoxBrojSlobodnih.Text = BrojSlobodnih.ToString();
+
+            textBoxBrojVozila.Text = vozilo.IzbrojVozila().ToString();
+
         }
 
         private void otvoriProzorZaRadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -188,6 +200,23 @@ namespace ParkingSoftware
             this.Close();
             LoginForma forma = new LoginForma();
             forma.Show();
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void detaljiFirmeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Detalji det = new Detalji();
+            det.ShowDialog();
+        }
+
+        private void statistikaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Statistika stat = new Statistika();
+            stat.ShowDialog();
         }
     }
 }

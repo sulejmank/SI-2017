@@ -16,6 +16,8 @@ namespace ParkingSoftware
         public decimal CenaPoDanu { get; set; }
         //public int BrojZauzetihMesta { get; set; }
 
+        public string naziv { get; set; }
+        public string adresa { get; set; }
 
 
         private OleDbConnection connection = new OleDbConnection();
@@ -71,6 +73,8 @@ namespace ParkingSoftware
                     BrojMesta = Int32.Parse(reader["BrojMesta"].ToString());
                     CenaPoSatu = Decimal.Parse(reader["CenaPoSatu"].ToString());
                     CenaPoDanu = Decimal.Parse(reader["CenaPoDanu"].ToString());
+                    naziv = (string)reader["Naziv"].ToString();
+                    adresa = (string)reader["Adresa"].ToString();
                     //  BrojZauzetihMesta = Int32.Parse(reader["BrojZauzetih"].ToString());
                 }
 
@@ -111,6 +115,44 @@ namespace ParkingSoftware
                 OleDbCommand comm = new OleDbCommand();
                 comm.Connection = connection;
                 comm.CommandText = "update Parking set CenaPoSatu=" + CenaPoSatu + ", CenaPoDanu=" + CenaPoDanu + " Where ID=1;";
+
+                comm.ExecuteNonQuery();
+
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                if (ex is SystemException ||
+                    ex is OleDbException ||
+                    ex is NotSupportedException ||
+                    ex is UnauthorizedAccessException ||
+                    ex is FormatException ||
+                    ex is IndexOutOfRangeException ||
+                    ex is InsufficientMemoryException ||
+                    ex is EntryPointNotFoundException ||
+                    ex is EntryPointNotFoundException ||
+                    ex is EvaluateException ||
+                    ex is InvalidCastException ||
+                    ex is InvalidProgramException)
+                    MessageBox.Show(ex.Message, "Greska");
+                else
+                    MessageBox.Show(ex.Message, "Greska");
+                if (connection != null)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public void promeni_detalje()
+        {
+            try
+            {
+                connection.Open();
+                OleDbCommand comm = new OleDbCommand();
+                comm.Connection = connection;
+                comm.CommandText = "update Parking set Naziv='" + naziv + "', Adresa='" + adresa + "' Where ID=1;";
 
                 comm.ExecuteNonQuery();
 

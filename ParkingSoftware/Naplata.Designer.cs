@@ -30,13 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Naplata));
             this.dataGridViewVozila = new System.Windows.Forms.DataGridView();
-            this.Tablice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dolazak = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Naplati = new System.Windows.Forms.DataGridViewButtonColumn();
             this.buttonPronadji = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonZavrsi = new System.Windows.Forms.Button();
+            this.Tablice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Vreme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dolazak = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Naplati = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVozila)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             this.dataGridViewVozila.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewVozila.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Tablice,
+            this.Vreme,
             this.Dolazak,
             this.Naplati});
             this.dataGridViewVozila.GridColor = System.Drawing.Color.DodgerBlue;
@@ -55,32 +57,12 @@
             this.dataGridViewVozila.TabIndex = 0;
             this.dataGridViewVozila.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewVozila_CellContentClick);
             // 
-            // Tablice
-            // 
-            this.Tablice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Tablice.HeaderText = "Tablice";
-            this.Tablice.Name = "Tablice";
-            this.Tablice.ReadOnly = true;
-            // 
-            // Dolazak
-            // 
-            this.Dolazak.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Dolazak.HeaderText = "Dolazak";
-            this.Dolazak.Name = "Dolazak";
-            // 
-            // Naplati
-            // 
-            this.Naplati.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Naplati.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Naplati.HeaderText = "Naplati";
-            this.Naplati.Name = "Naplati";
-            this.Naplati.Text = "Naplati";
-            this.Naplati.UseColumnTextForButtonValue = true;
-            this.Naplati.Width = 150;
-            // 
             // buttonPronadji
             // 
             this.buttonPronadji.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonPronadji.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.buttonPronadji.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonPronadji.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.buttonPronadji.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPronadji.Location = new System.Drawing.Point(333, 351);
             this.buttonPronadji.Name = "buttonPronadji";
@@ -116,6 +98,9 @@
             // buttonZavrsi
             // 
             this.buttonZavrsi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonZavrsi.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.buttonZavrsi.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonZavrsi.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.buttonZavrsi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonZavrsi.Location = new System.Drawing.Point(624, 351);
             this.buttonZavrsi.Name = "buttonZavrsi";
@@ -124,6 +109,35 @@
             this.buttonZavrsi.Text = "Završi";
             this.buttonZavrsi.UseVisualStyleBackColor = true;
             this.buttonZavrsi.Click += new System.EventHandler(this.buttonZavrsi_Click);
+            // 
+            // Tablice
+            // 
+            this.Tablice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Tablice.HeaderText = "Tablice";
+            this.Tablice.Name = "Tablice";
+            this.Tablice.ReadOnly = true;
+            // 
+            // Vreme
+            // 
+            this.Vreme.HeaderText = "Vreme(min)";
+            this.Vreme.Name = "Vreme";
+            this.Vreme.ReadOnly = true;
+            // 
+            // Dolazak
+            // 
+            this.Dolazak.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Dolazak.HeaderText = "Dolazak";
+            this.Dolazak.Name = "Dolazak";
+            // 
+            // Naplati
+            // 
+            this.Naplati.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Naplati.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Naplati.HeaderText = "Naplati";
+            this.Naplati.Name = "Naplati";
+            this.Naplati.Text = "Naplati";
+            this.Naplati.UseColumnTextForButtonValue = true;
+            this.Naplati.Width = 150;
             // 
             // Naplata
             // 
@@ -156,12 +170,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewVozila;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tablice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Dolazak;
-        private System.Windows.Forms.DataGridViewButtonColumn Naplati;
         private System.Windows.Forms.Button buttonPronadji;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonZavrsi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Vreme;
+        private System.Windows.Forms.DataGridViewButtonColumn Naplati;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dolazak;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tablice;
     }
 }

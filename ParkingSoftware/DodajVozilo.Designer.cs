@@ -51,10 +51,14 @@
             this.textBoxTablice.Name = "textBoxTablice";
             this.textBoxTablice.Size = new System.Drawing.Size(176, 31);
             this.textBoxTablice.TabIndex = 1;
+            this.textBoxTablice.TextChanged += new System.EventHandler(this.textBoxTablice_TextChanged);
             // 
             // buttonDodajVozilo
             // 
             this.buttonDodajVozilo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.buttonDodajVozilo.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.buttonDodajVozilo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.buttonDodajVozilo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSkyBlue;
             this.buttonDodajVozilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDodajVozilo.Location = new System.Drawing.Point(169, 179);
             this.buttonDodajVozilo.Name = "buttonDodajVozilo";
